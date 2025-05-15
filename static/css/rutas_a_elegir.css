@@ -1,0 +1,136 @@
+.rutas-elegir-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    min-height: 50vh;
+    animation: fadeIn 1s ease-in-out;
+    background-color: #f5f7fa; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.rutas-elegir-container h1 {
+    text-align: center;
+    color: #005af5; 
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.rutas-elegir-container > p {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.rutas-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+}
+
+
+.ruta-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-height: 10px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ruta-card:hover {
+    transform: translateY(-5px);
+}
+
+.ruta-card h2 {
+    color: #01579b; 
+    font-size: 1.3em; 
+    margin-bottom: 8px;
+}
+
+.ruta-card p {
+    color: #444;
+    font-size: 0.9em; 
+    line-height: 1.4;
+    margin-bottom: 10px;
+    flex-grow: 1; 
+}
+
+.ruta-card a {
+    display: inline-block;
+    background-color: #0b8f8f;
+    color: #fff;
+    margin: 30px;
+    padding:10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.ruta-card a:hover {
+    background-color: #bc8e05; 
+}
+
+
+@media (max-width: 768px) {
+    .rutas-elegir-container {
+        padding: 20px;
+    }
+
+    .rutas-elegir-container h1 {
+        font-size: 2em;
+    }
+
+    .rutas-list {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+
+    .ruta-card {
+        padding: 10px;
+        min-height: 120px;
+    }
+
+    .ruta-card h2 {
+        font-size: 1.2em;
+    }
+
+    .ruta-card p {
+        font-size: 0.85em;
+    }
+
+    .ruta-card a {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .rutas-list {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+
+    .ruta-card {
+        padding: 12px;
+    }
+}

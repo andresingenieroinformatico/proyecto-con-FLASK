@@ -1,0 +1,195 @@
+
+.vehiculos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+    background-color: #f5f7fa; 
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.vehiculos-container h1 {
+    text-align: center;
+    color: #005af5; 
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.vehiculos-container > p {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.vehiculo-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.vehiculo-section:hover {
+    transform: translateY(-5px);
+}
+
+.vehiculo-section h2 {
+    color: #01579b; 
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.vehiculo-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.vehiculo-img {
+    width: 50%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #4caf50; 
+    transition: transform 0.3s ease;
+}
+
+.vehiculo-img:hover {
+    transform: scale(1.05);
+}
+
+.vehiculo-info {
+    width: 50%;
+}
+
+.vehiculo-info p {
+    color: #444;
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.vehiculo-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.vehiculo-info ul li {
+    color: #444;
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.vehiculo-info ul li strong {
+    color: #01579b;
+}
+
+
+.botones-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.reserva-button {
+    background-color: #ffb300; 
+    color: #fff;
+}
+
+.reserva-button:hover {
+    background-color: #e0a800; 
+}
+
+.volver-button {
+    background-color: #01579b; 
+    color: #fff;
+}
+
+.volver-button:hover {
+    background-color: #013a63; 
+}
+
+
+@media (max-width: 768px) {
+    .vehiculos-container {
+        padding: 20px;
+    }
+
+    .vehiculos-container h1 {
+        font-size: 2em;
+    }
+
+    .vehiculo-section h2 {
+        font-size: 1.5em;
+    }
+
+    .vehiculo-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .vehiculo-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .vehiculo-info {
+        width: 100%;
+    }
+
+    .vehiculo-info p,
+    .vehiculo-info ul li {
+        font-size: 0.9em;
+    }
+
+    .cta-button {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .vehiculo-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .vehiculo-img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .vehiculo-info {
+        width: 100%;
+    }
+}

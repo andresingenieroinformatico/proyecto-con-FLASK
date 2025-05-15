@@ -1,0 +1,203 @@
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: 'Helvetica', Arial, sans-serif; 
+    min-height: 100vh;
+    background-color: #f5f7fa; 
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.welcome-text h2 {
+    color: #005af5; 
+    font-size: 2em; 
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.welcome-text p {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+    padding: 8px 0; 
+}
+
+.intro-section {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); 
+}
+
+.intro-section h3 {
+    color: #0277bd;
+    font-size: 1.8em;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.intro-section p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.rutas-destacadas {
+    margin-bottom: 40px;
+}
+
+.rutas-destacadas h3 {
+    text-align: center;
+    color: #0277bd;
+    font-size: 1.8em;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.rutas-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.ruta-card {
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 30%;
+}
+
+.ruta-card h4 {
+    color: #01579b; 
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.ruta-card p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.ruta-card a {
+    color: #0b8f8f; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ruta-card a:hover {
+    color: #bc8e05;
+}
+
+.pasos-section {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.pasos-section h3 {
+    color: #0277bd;
+    font-size: 1.8em;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.pasos-section p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.novedades {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.novedades h3 {
+    color: #0277bd;
+    font-size: 1.8em;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.novedades ul {
+    list-style: none;
+    padding: 0;
+}
+
+.novedades li {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.cta-button {
+    color: #ffffff;
+    display: inline-block;
+    background-color: #0b8f8f; 
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #bc8e05; 
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 16px;
+    }
+
+    .welcome-text h2 {
+        font-size: 1.8em;
+    }
+
+    .intro-section,
+    .pasos-section {
+        padding: 16px;
+    }
+
+    .rutas-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ruta-card {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .novedades h3,
+    .intro-section h3,
+    .pasos-section h3,
+    .rutas-destacadas h3 {
+        font-size: 1.6em;
+    }
+
+    .novedades li {
+        font-size: 0.95em;
+    }
+}

@@ -1,0 +1,194 @@
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/vehiculos.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    z-index: -1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.rol {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.rol i {
+    color: #555;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.rol select {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    appearance: none;
+}
+
+.rol select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.rol select option {
+    color: #000;
+}
+
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    max-width: 900px;
+    margin: 0 auto; 
+}
+
+
+.image-container, .login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    height: 500px;
+    width: 800px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.login-container {
+    flex-direction: column;
+    max-width: 450px;
+}
+
+
+.login-form {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; 
+}
+
+input[type="tipo_usu"],
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    margin: 15px 0; 
+    padding: 10px 40px 10px 40px; 
+    font-size: 16px;
+    color: #2c3e50;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    background: transparent;
+    transition: border-bottom 0.3s ease;
+    box-sizing: border-box; 
+}
+
+input[type="tipo_usu"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-bottom: 2px solid #007bff;
+}
+
+input[type="tipo_usu"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+.form-group .icon {
+    position: absolute;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3b4655;
+    font-size: 16px;
+}
+
+.form-group .fa-eye,
+.form-group .fa-eye-slash {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2a3645;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.form-group .fa-eye:hover,
+.form-group .fa-eye-slash:hover {
+    color: #007bff;
+}
+
+.flash-message.error {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.btn {
+    background-color: #0052cc;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #003d99;
+}
+
+.help-link, .register-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}

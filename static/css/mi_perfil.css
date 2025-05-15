@@ -1,0 +1,243 @@
+
+.profile-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.profile-icon {
+    font-size: 40px;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    color: #34495e;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #3498db;
+}
+
+.dropbtn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.profile-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #90d3ff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #90d3ff;
+    transition: border-color 0.3s ease;
+    
+}
+
+.dropbtn:hover .profile-initial {
+    border-color: #8fcef8;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #34495e;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.dropdown-content a i {
+    margin-right: 8px;
+    color: #95a5a6;
+}
+
+.dropdown-content a:hover {
+    background-color: #f7fafc;
+    color: #aadcfd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.profile-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.profile-container h2 {
+    color: #2c3e50; 
+    font-size: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.profile-icon {
+    font-size: 50px;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    align-items: center;
+    border-bottom: 1px solid #d5e0e8;
+}
+
+.profile-item:last-child {
+    border-bottom: none; 
+}
+
+.profile-item .icon {
+    font-size: 20px;
+    color: #95a5a6;
+    margin-right: 15px;
+}
+
+.profile-item span {
+    font-weight: bold;
+    color: #34495e; 
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #72787d;
+    color: #ffffff; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #2980b9; 
+}
+
+.btn-back:active {
+    background-color: #1f6692; 
+}
+.btn-edit {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: #ffffff; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9; 
+}
+
+.btn-edit:active {
+    background-color: #1f6692; 
+}
+
+
+.profile-container h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flash-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .btn-back {
+        width: 100%;
+        text-align: center;
+    }
+}

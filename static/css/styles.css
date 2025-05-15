@@ -1,0 +1,389 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #2c3e50;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.flash-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.rutas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+    background-color: #f5f7fa; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.rutas-container h1 {
+    text-align: center;
+    color: #005af5;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rutas-container > p {
+    text-align: justify;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.ruta-item,
+.ruta-item-1 {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.ruta-item:nth-child(odd),
+.ruta-item-1:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.ruta-item:hover,
+.ruta-item-1:hover {
+    transform: translateX(10px) translateY(-10px);
+}
+
+.ruta-item .ruta-content,
+.ruta-item-1 .ruta-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    flex: 1;
+    padding: 0 20px;
+    min-width: 0;
+}
+
+.ruta-item h2,
+.ruta-item-1 h2 {
+    color: #01579b;
+    font-size: 1.8em;
+    margin-right: 20px;
+    white-space: nowrap;
+    text-align: center; 
+}
+
+.ruta-item p,
+.ruta-item-1 p {
+    margin: 50px;
+    text-align: justify; 
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ruta-img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #4caf50;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.ruta-img:hover {
+    transform: scale(1.05);
+    border-color: #01579b;
+}
+
+.ruta-bucaramanga-container,
+.ruta-yondo-container,
+.ruta-puerto-parra-container,
+.ruta-puerto-wilches-container,
+.ruta-barrancabermeja-container {
+    max-width: 100%px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ruta-bucaramanga-container h2,
+.ruta-yondo-container h2,
+.ruta-puerto-parra-container h2,
+.ruta-puerto-wilches-container h2,
+.ruta-barrancabermeja-container h2
+.ruta-aeropuerto-container h2{
+    text-align: center;
+    color: #005af5;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.ruta-bucaramanga-container > p,
+.ruta-yondo-container > p,
+.ruta-puerto-parra-container > p,
+.ruta-puerto-wilches-container > p,
+.ruta-barrancabermeja-container p,
+.ruta-aeropuerto-container p {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+.bucaramanga-img,
+.yondo-img,
+.puerto-parra-img,
+.puerto-wilches-img,
+.barrancabermeja-img,
+.aeropuerto-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #4caf50;
+    transition: transform 0.3s ease;
+}
+
+.bucaramanga-img:hover,
+.yondo-img:hover,
+.puerto-parra-img:hover,
+.puerto-wilches-img:hover,
+.barrancabermeja-img:hover
+.aeropuerto-img:hover{
+    transform: scale(1.05);
+    border-color: #01579b;
+}
+
+.descripcion-section,
+.ruta-viaje-section,
+.distancia-section,
+.imagenes-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.descripcion-section:hover,
+.ruta-viaje-section:hover,
+.distancia-section:hover,
+.imagenes-section:hover {
+    transform: translateY(-5px);
+}
+
+.descripcion-section h2,
+.ruta-viaje-section h2,
+.distancia-section h2,
+.imagenes-section h2 {
+    color: #01579b; 
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.descripcion-section p,
+.ruta-viaje-section p,
+.distancia-section p {
+    color: #444;
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.imagenes-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.botones-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.reserva-button {
+    background-color: #0b8f8f; 
+    color: #fff;
+}
+
+.reserva-button:hover {
+    background-color: #bc8e05; 
+}
+
+.volver-button {
+    background-color: #01579b; 
+    color: #fff;
+}
+
+.volver-button:hover {
+    background-color: #013a63; 
+}
+
+@media (max-width: 768px) {
+    .ruta-bucaramanga-container {
+        padding: 20px;
+    }
+
+    .ruta-bucaramanga-container h1 {
+        font-size: 2em;
+    }
+
+    .descripcion-section h2,
+    .ruta-viaje-section h2,
+    .distancia-section h2,
+    .imagenes-section h2 {
+        font-size: 1.5em;
+    }
+
+    .descripcion-section p,
+    .ruta-viaje-section p,
+    .distancia-section p {
+        font-size: 1em;
+    }
+
+    .imagenes-gallery {
+        grid-template-columns: 1fr; 
+    }
+
+    .bucaramanga-img {
+        height: 150px;
+    }
+
+    .cta-button {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+    .ruta-item,
+    .ruta-item-1 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ruta-item:nth-child(odd),
+    .ruta-item-1:nth-child(odd) {
+        flex-direction: column;
+    }
+
+    .ruta-item .ruta-content,
+    .ruta-item-1 .ruta-content {
+        flex-direction: column; 
+        padding: 0;
+        text-align: center;
+    }
+
+    .ruta-item h2,
+    .ruta-item-1 h2 {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .ruta-item p,
+    .ruta-item-1 p {
+        text-align: center;
+    }
+
+    .ruta-img {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .rutas-container h1 {
+        font-size: 2em;
+    }
+    .imagenes-gallery {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}

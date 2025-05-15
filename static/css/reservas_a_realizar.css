@@ -1,0 +1,164 @@
+
+.reserva-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+    background-color: #f5f7fa; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.reserva-container h1 {
+    text-align: center;
+    color: #005af5;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.reserva-container > p {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.form-section:hover {
+    transform: translateY(-5px);
+}
+
+.form-section h2 {
+    color: #01579b; 
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #444;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #01579b;
+    outline: none;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.form-group label[for="incluir_regreso"] {
+    display: inline;
+    font-size: 1em;
+}
+
+.botones-section-12{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-button-1 {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+
+.reserva-button1 {
+    background-color: #0375cc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.reserva-button1:hover {
+    background-color: #013a63; 
+}
+
+.volver-button1{
+    background-color: #6a6a6a; 
+    color: #fff;
+}
+
+.volver-button1:hover {
+    background-color: #363636; 
+}
+
+@media (max-width: 768px) {
+    .reserva-container {
+        padding: 20px;
+    }
+
+    .reserva-container h1 {
+        font-size: 2em;
+    }
+
+    .form-section h2 {
+        font-size: 1.5em;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 0.9em;
+    }
+
+    .form-group label[for="incluir_regreso"] {
+        font-size: 0.9em;
+    }
+
+    .cta-button {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+}
