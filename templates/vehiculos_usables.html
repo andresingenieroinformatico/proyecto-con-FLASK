@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Vehículos Disponibles{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vehiculos_usable.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="vehiculos-container">
+        <h1>Vehículos Disponibles para Alquilar</h1>
+        <p>Explora las opciones de transporte que ofrecemos para tu viaje. Elige el vehículo que mejor se adapte a tus necesidades.</p>
+
+        <!-- Sección de Buses -->
+        <section class="vehiculo-section bus">
+            <h2>Buses</h2>
+            <div class="vehiculo-content">
+                <img src="{{ url_for('static', filename='images/bus_usable.jpg') }}" alt="Bus" class="vehiculo-img">
+                <div class="vehiculo-info">
+                    <p>Nuestros buses son ideales para grupos grandes, perfectos para viajes familiares o eventos. Ofrecen comodidad y seguridad para todos los pasajeros.</p>
+                    <ul>
+                        <li><strong>Capacidad:</strong> Hasta 40 pasajeros</li>
+                        <li><strong>Comodidades:</strong> Aire acondicionado, asientos reclinables</li>
+                        <li><strong>Ideal para:</strong> Viajes largos, grupos grandes</li>
+                    </ul>
+                    <a href="{{ url_for('reservas_a_realizar', tipo_vehiculo='bus') }}" class="cta-button reserva-button">Reservar un Bus</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="vehiculo-section carro-particular">
+            <h2>Carros Particulares</h2>
+            <div class="vehiculo-content">
+                <img src="{{ url_for('static', filename='images/carros_user.jpg') }}" alt="Carro Particular" class="vehiculo-img">
+                <div class="vehiculo-info">
+                    <p>Los carros particulares ofrecen una experiencia más personalizada y flexible, ideal para familias pequeñas o viajes de negocios.</p>
+                    <ul>
+                        <li><strong>Capacidad:</strong> Hasta 4 pasajeros</li>
+                        <li><strong>Comodidades:</strong> Aire acondicionado, espacio para equipaje</li>
+                        <li><strong>Ideal para:</strong> Viajes cortos, familias pequeñas</li>
+                    </ul>
+                    <a href="{{ url_for('reservas_a_realizar', tipo_vehiculo='carro_particular') }}" class="cta-button reserva-button">Reservar un Carro Particular</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="vehiculo-section taxi">
+            <h2>Taxis</h2>
+            <div class="vehiculo-content">
+                <img src="{{ url_for('static', filename='images/taxi_usable.png') }}" alt="Taxi" class="vehiculo-img">
+                <div class="vehiculo-info">
+                    <p>Nuestros taxis son rápidos y convenientes, perfectos para traslados dentro de la ciudad o al aeropuerto.</p>
+                    <ul>
+                        <li><strong>Capacidad:</strong> Hasta 4 pasajeros</li>
+                        <li><strong>Comodidades:</strong> Servicio puerta a puerta, disponibilidad inmediata</li>
+                        <li><strong>Ideal para:</strong> Traslados rápidos, viajes individuales</li>
+                    </ul>
+                    <a href="{{ url_for('reservas_a_realizar', tipo_vehiculo='taxi') }}" class="cta-button reserva-button">Reservar un Taxi</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="botones-section">
+            <a href="{{ url_for('index') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

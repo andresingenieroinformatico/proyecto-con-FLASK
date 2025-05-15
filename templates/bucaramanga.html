@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Ruta a Bucaramanga{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="ruta-bucaramanga-container">
+
+        <section class="distancia-section">
+            <h2>Distancia</h2>
+            <p>La distancia entre Barrancabermeja y Bucaramanga es de <strong>116 kilómetros</strong> (116,000 metros) por carretera. El trayecto puede variar ligeramente dependiendo de la ruta específica y las condiciones del tráfico.</p>
+        </section>
+
+        <section class="imagenes-section">
+            <h2>Imágenes de Bucaramanga</h2>
+            <div class="imagenes-gallery">
+                <img src="{{ url_for('static', filename='images/bucaramanga_noche.jpg') }}" alt="Parque Santander en Bucaramanga" class="bucaramanga-img">
+                <img src="{{ url_for('static', filename='images/bucaramanga_noche_1.jpg') }}" alt="Vista de la ciudad de Bucaramanga" class="bucaramanga-img">
+                <img src="{{ url_for('static', filename='images/bucaramanga_noche_2.jpg') }}" alt="Paisaje montañoso cerca de Bucaramanga" class="bucaramanga-img">
+            </div>
+        </section>
+
+        <div class="botones-section">
+            <a href="{{ url_for('reservas_a_realizar') }}" class="cta-button reserva-button">Realizar Reserva de Viaje</a>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

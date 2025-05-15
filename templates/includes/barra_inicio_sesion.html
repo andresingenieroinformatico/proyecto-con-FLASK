@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="navbar-brand">
+        <h1>Bienvenido, {{ usuario.primer_N }} {{ usuario.primer_A }}</h1>
+        </div>
+        <ul class="navbar-menu">
+        <li><a href="/index" class="nav-link">Inicio</a></li>
+        <li><a href="/rutas_a_elegir" class="nav-link">Rutas</a></li>
+        <li><a href="/vehiculos_usables" class="nav-link">Vehículos</a></li>
+        <li><a href="/reservas_a_realizar" class="nav-link">Reservas</a></li>
+        <li><a href="/mis_reservas" class="nav-link">Mis Reservas</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">
+            <div class="profile-initial">{{ usuario.primer_N[0].upper() }}</div>
+            </a>
+            <div class="dropdown-content">
+            <a href="/mi_perfil"><i class="fas fa-user"></i> Mi Perfil</a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+            </div>
+        </li>
+        </ul>
+    </nav>
+    </header>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('.navbar-menu a');
+        const currentPath = window.location.pathname;
+        links.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+        }
+        });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/imagen_login_register.jpg') }}" alt="login_register">
+    </div>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form action="/login" class="login-form" method="POST">
+
+            <div class="rol">
+                <i class="fas fa-user icon"></i>
+                <select name="tipo_usu" required>
+                    <option value="" disabled selected>Selecciona tu rol</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="ciudadano">Ciudadano</option>
+                </select>
+            </div>            
+            
+            <div class="form-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+            </div>
+
+            <div class="form-group password-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" name="password" id="password" class="password-input" placeholder="Contraseña" required>
+                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+
+            <button type="submit" class="btn">Iniciar Sesión</button>
+        </form>
+
+        <p class="help-link"><a href="/recuperar_password">¿Necesitas ayuda para iniciar sesión?</a></p>
+
+        <div class="register-link">
+            <p>¿No tienes una cuenta? <a href="/register">Regístrate ahora</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

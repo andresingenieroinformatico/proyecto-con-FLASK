@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Verificar Código{% endblock %}
+{% block header %}
+<header>
+    {% include 'includes/barra_navegacion.html' %}
+</header>
+{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/verificar_codigo.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Verificar Código</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('verificar_codigo') }}">
+            <label for="codigo">Código de verificación:</label>
+            <input type="text" name="codigo" id="codigo" required>
+            <button type="submit">Verificar</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/footer.html' %}
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sector Transporte{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block extra_css %}{% endblock %}
+    <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</head>
+<body>
+    {% block header %}
+        <header>
+            {% include 'includes/barra_navegacion.html' %}
+        </header>
+    {% endblock %}
+
+    <main>  
+        {% block content %}
+            <section class="rutas-container">
+                <h1>¡Bienvenidos a Transporte Barrancabermeja!</h1>
+                <p>Tu solución para moverte por la Capital Petrolera y sus alrededores de forma fácil y segura.</p>
+        
+                <div class="ruta-item">
+                    <h2>Explora Nuestras Rutas</h2>
+                    <p>Desde el Río Magdalena hasta Bucaramanga, conectamos la ciudad con sus zonas aledañas.</p>
+                    <a href="/rutas_a_elegir"><img src="{{ url_for('static', filename='images/vehiculos.jpg') }}" alt="Vehículos disponibles" class="ruta-img"></a>
+                </div>
+        
+                <div class="ruta-item">
+                    <h2>Elige Tu Vehículo</h2>
+                    <p>Taxis, buses o vehículos particulares disponibles para tus viajes diarios o especiales.</p>
+                    <a href="/vehiculos_usables"><img src="{{ url_for('static', filename='images/vehiculos.jpg') }}" alt="Vehículos disponibles" class="ruta-img"></a>
+                </div>
+        
+                <div class="ruta-item">
+                    <h2>Reserva Ahora</h2>
+                    <p>Inicia sesión y reserva tu transporte en pocos pasos. Paga como prefieras.</p>
+                    <a href="/reservas_a_realizar"><img src="{{ url_for('static', filename='images/reserva.jpg') }}" alt="Reserva en línea" class="ruta-img"></a>
+                </div>
+            </section>
+        {% endblock %}
+
+    </main>
+
+    <footer>
+        {% include 'includes/footer.html' %}
+    </footer>
+</body>
+</html>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mi_perfil.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="profile-container">
+        
+        <h2>Mi Perfil</h2>
+        <i class="fas fa-user profile-icon"></i>
+
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+        <div class="profile-item">
+            <i class="fas fa-user icon"></i>
+            <span>Primer Nombre:</span> {{ usuario.primer_N }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-user icon"></i>
+            <span>Segundo Nombre:</span> {{ usuario.segundo_N }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-user icon"></i>
+            <span>Primer Apellido:</span> {{ usuario.primer_A }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-user icon"></i>
+            <span>Segundo Apellido:</span> {{ usuario.segundo_A }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-phone icon"></i>
+            <span>Celular:</span> {{ usuario.celular }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-envelope icon"></i>
+            <span>Correo:</span> {{ usuario.email }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-id-card icon"></i>
+            <span>Cédula:</span> {{ usuario.cedula }}
+        </div>
+
+        <div class="profile-item">
+            <i class="fas fa-users icon"></i>
+            <span>Tipo de Usuario:</span> {{ usuario.tipo_usu }}
+        </div>
+
+        <a href="{{ url_for('actualizar_perfil') }}" class="btn-edit">Editar</a>
+        <a href="{{ url_for('index') }}" class="btn-back">Volver a Inicio</a>
+    </div>
+{% endblock %}

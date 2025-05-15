@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Perfil{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/actualizar_perfil.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        <h2>Actualizar Perfil</h2>
+        <i class="fas fa-user-edit profile-icon"></i>
+
+        <form action="{{ url_for('actualizar_perfil') }}" method="POST">
+            <div class="profile-item">
+                <i class="fas fa-user icon"></i>
+                <span>Primer Nombre:</span>
+                <input type="text" name="primer_N" value="{{ usuario.primer_N }}" required>
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-user icon"></i>
+                <span>Segundo Nombre:</span>
+                <input type="text" name="segundo_N" value="{{ usuario.segundo_N }}">
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-user icon"></i>
+                <span>Primer Apellido:</span>
+                <input type="text" name="primer_A" value="{{ usuario.primer_A }}" required>
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-user icon"></i>
+                <span>Segundo Apellido:</span>
+                <input type="text" name="segundo_A" value="{{ usuario.segundo_A }}">
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-phone icon"></i>
+                <span>Celular:</span>
+                <input type="text" name="celular" value="{{ usuario.celular }}" required>
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-envelope icon"></i>
+                <span>Correo:</span>
+                <input type="email" name="email" value="{{ usuario.email }}" readonly>
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-id-card icon"></i>
+                <span>Cédula:</span>
+                <input type="text" name="cedula" value="{{ usuario.cedula }}" readonly>
+            </div>
+
+            <div class="profile-item">
+                <i class="fas fa-users icon"></i>
+                <span>Tipo de Usuario:</span>
+                <input type="text" name="tipo_usu" value="{{ usuario.tipo_usu }}" readonly>
+            </div>
+
+            <a href="{{ url_for('mi_perfil') }}" class="btn-back">Volver al Perfil</a>
+            <button type="submit" class="btn-save">Guardar Cambios</button>
+            
+        </form>
+    </div>
+{% endblock %}

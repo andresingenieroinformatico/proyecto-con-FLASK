@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Explora Barrancabermeja{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="ruta-barrancabermeja-container">
+
+        <section class="distancia-section">
+            <h2>Distancia</h2>
+            <p>Dado que estás en Barrancabermeja, las distancias dentro de la ciudad son cortas. Por ejemplo, desde el centro (Parque de la Vida) hasta el Malecón del Río Magdalena hay aproximadamente <strong>2 kilómetros</strong> (2,000 metros), un trayecto de 5-10 minutos en carro o 20 minutos caminando. Las comunas más alejadas, como la Comuna 7, están a unos <strong>5 kilómetros</strong> (5,000 metros) del centro.</p>
+        </section>
+
+        <section class="imagenes-section">
+            <h2>Imágenes de Barrancabermeja</h2>
+            <div class="imagenes-gallery">
+                <img src="{{ url_for('static', filename='images/refineria.jpg') }}" alt="refineria" class="barrancabermeja-img">
+                <img src="{{ url_for('static', filename='images/atardecer.jpg') }}" alt="atardecer" class="barrancabermeja-img">
+                <img src="{{ url_for('static', filename='images/cristo_petrolero.jpg') }}" alt="cristo del petrolero" class="barrancabermeja-img">
+            </div>
+        </section>
+
+        <!-- Sección de botones -->
+        <div class="botones-section">
+            <a href="{{ url_for('reservas_a_realizar') }}" class="cta-button reserva-button">Realizar Reserva de Viaje</a>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Ruta a Puerto Wilches{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="ruta-puerto-wilches-container">
+
+        <section class="distancia-section">
+            <h2>Distancia</h2>
+            <p>La distancia entre Barrancabermeja y Puerto Wilches es de <strong>45 kilómetros</strong> (45,000 metros) por carretera. Por vía fluvial, la distancia aproximada es de <strong>35 kilómetros</strong> (35,000 metros), dependiendo de la ruta del río.</p>
+        </section>
+
+        <section class="imagenes-section">
+            <h2>Imágenes de Puerto Wilches</h2>
+            <div class="imagenes-gallery">
+                <img src="{{ url_for('static', filename='images/wilches_rio.jpg') }}" alt="Puerto Wilches rio" class="puerto-wilches-img">
+                <img src="{{ url_for('static', filename='images/wilches_parque.jpg') }}" alt="Puerto Wilches parque" class="puerto-wilches-img">
+                <img src="{{ url_for('static', filename='images/wilches_iglesia.jpg') }}" alt="Puerto Wilches iglesia" class="puerto-wilches-img">
+            </div>
+        </section>
+
+        <div class="botones-section">
+            <a href="{{ url_for('reservas_a_realizar') }}" class="cta-button reserva-button">Realizar Reserva de Viaje</a>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

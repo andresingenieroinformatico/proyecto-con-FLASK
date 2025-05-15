@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Ruta a Puerto Parra{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="ruta-puerto-parra-container">
+
+        <section class="distancia-section">
+            <h2>Distancia</h2>
+            <p>La distancia entre Barrancabermeja y Puerto Parra es de <strong>60 kilómetros</strong> (60,000 metros) por carretera. El trayecto puede variar ligeramente dependiendo de las condiciones de la vía y el tráfico.</p>
+        </section>
+
+        <section class="imagenes-section">
+            <h2>Imágenes de Puerto Parra</h2>
+            <div class="imagenes-gallery">
+                <img src="{{ url_for('static', filename='images/puerto_parra_rio.jpg') }}" alt="puerto parra rio" class="puerto-parra-img">
+                <img src="{{ url_for('static', filename='images/puerto_parra_rio_1.jpg') }}" alt="Puerto Parra_rio" class="puerto-parra-img">
+                <img src="{{ url_for('static', filename='images/puerto_parra_2.jpg') }}" alt="Pueblo de Puerto Parra" class="puerto-parra-img">
+            </div>
+        </section>
+        <div class="botones-section">
+            <a href="{{ url_for('reservas_a_realizar') }}" class="cta-button reserva-button">Realizar Reserva de Viaje</a>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

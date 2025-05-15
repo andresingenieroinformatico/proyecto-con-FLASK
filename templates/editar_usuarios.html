@@ -1,0 +1,80 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Editar Usuario
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar_datos.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <section class="edit-user-section">
+            <h3>EDITAR USUARIO</h3>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="{{ url_for('actualizar_usuario') }}" method="POST">
+                <input type="hidden" name="id_usu" value="{{ usuario.id_usu }}">
+
+                <div class="mb-3">
+                    <label for="primer_N" class="form-label">Primer Nombre:</label>
+                    <input type="text" id="primer_N" name="primer_N" class="form-control" value="{{ usuario.primer_N }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="segundo_N" class="form-label">Segundo Nombre:</label>
+                    <input type="text" id="segundo_N" name="segundo_N" class="form-control" value="{{ usuario.segundo_N}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="primer_A" class="form-label">Primer Apellido:</label>
+                    <input type="text" id="primer_A" name="primer_A" class="form-control" value="{{ usuario.primer_A }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="segundo_A" class="form-label">Segundo Apellido:</label>
+                    <input type="text" id="segundo_A" name="segundo_A" class="form-control" value="{{ usuario.segundo_A or '' }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="celular" class="form-label">Celular:</label>
+                    <input type="text" id="celular" name="celular" class="form-control" value="{{ usuario.celular }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo:</label>
+                    <input type="email" id="email" name="email" class="form-control" value="{{ usuario.email }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cedula" class="form-label">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula" class="form-control" value="{{ usuario.cedula }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_usu" class="form-label">Rol:</label>
+                    <select id="tipo_usu" name="tipo_usu" class="form-select" required>
+                        <option value="ciudadano">Ciudadano</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <a href="{{ url_for('usuarios') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}

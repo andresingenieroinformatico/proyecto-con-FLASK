@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Ruta a Yondó{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="ruta-yondo-container">
+            
+        <section class="distancia-section">
+            <h2>Distancia</h2>
+            <p>La distancia entre Barrancabermeja y Yondó es de <strong>15 kilómetros</strong> (15,000 metros) por carretera. Por vía fluvial, la distancia puede variar según la ruta del río, pero se estima en alrededor de <strong>12 kilómetros</strong> (12,000 metros).</p>
+        </section>
+
+        <section class="imagenes-section">
+            <h2>Yondó</h2>
+            <div class="imagenes-gallery">
+                <img src="{{ url_for('static', filename='images/yondo_ini_sesion.jpg') }}" alt="Yondó" class="yondo-img">
+                <img src="{{ url_for('static', filename='images/yondo_parque.jpg') }}" alt="Yondó parque" class="yondo-img">
+                <img src="{{ url_for('static', filename='images/yondo_iglesia.jpg') }}" alt="Yondó iglesia" class="yondo-img">
+            </div>
+        </section>
+
+        <!-- Sección de botones -->
+        <div class="botones-section">
+            <a href="{{ url_for('reservas_a_realizar') }}" class="cta-button reserva-button">Realizar Reserva de Viaje</a>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

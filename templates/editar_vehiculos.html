@@ -1,0 +1,67 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Editar Vehículo
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar_datos.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <section class="edit-user-section">
+            <h3>EDITAR VEHÍCULO</h3>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('actualizar_vehiculo') }}" method="POST">
+                <input type="hidden" name="id_vehiculo" value="{{ vehiculo.id_vehiculo }}">
+
+                <div class="mb-3">
+                    <label for="placa" class="form-label">Placa:</label>
+                    <input type="text" id="placa" name="placa" class="form-control" value="{{ vehiculo.placa }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca:</label>
+                    <input type="text" id="marca" name="marca" class="form-control" value="{{ vehiculo.marca }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" class="form-control" value="{{ vehiculo.modelo }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="capacidad" class="form-label">Capacidad:</label>
+                    <input type="number" id="capacidad" name="capacidad" class="form-control" value="{{ vehiculo.capacidad }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_vehiculo" class="form-label">Tipo de Vehículo:</label>
+                    <select id="tipo_vehiculo" name="tipo_vehiculo" class="form-select" required>
+                        <option value="taxi" {% if vehiculo.tipo_vehiculo == 'taxi' %}selected{% endif %}>Taxi</option>
+                        <option value="bus" {% if vehiculo.tipo_vehiculo == 'bus' %}selected{% endif %}>Bus</option>
+                        <option value="carro particular" {% if vehiculo.tipo_vehiculo == 'carro particular' %}selected{% endif %}>Carro Particular</option>
+                    </select>
+                </div>
+                
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <a href="{{ url_for('vehiculos_registrados') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Bienvenido{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+
+        <div class="welcome-text">
+            <h2>¡Bienvenido a Nuestra Página Web{% if user %}, {{ user.nombre }}!{% endif %}</h2>
+            <p>Explora Barrancabermeja, la Capital Petrolera de Colombia, y descubre sus rutas, cultura y naturaleza a orillas del majestuoso Río Magdalena.</p>
+        </div>
+
+        <section class="intro-section">
+            <h3>Descubre Barrancabermeja</h3>
+            <p>Barrancabermeja, ubicada en el corazón de Santander, es conocida por su vibrante cultura, su importancia en la industria petrolera y su rica biodiversidad. Desde el Paseo de la Cultura en el barrio Galán hasta las rutas fluviales por el Río Magdalena, hay algo para todos los gustos. ¡Empieza tu aventura hoy!</p>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button">Explorar Rutas</a>
+        </section>
+
+        <section class="rutas-destacadas">
+            <h3>Rutas Populares</h3>
+            <div class="rutas-list">
+                <div class="ruta-card">
+                    <h4>Yondó</h4>
+                    <p>Disfruta de un paseo en lancha por el Río Magdalena y sus ciénagas, con atardeceres inolvidables.</p>
+                    <a href="{{ url_for('yondo') }}">Ver más</a>
+                </div>
+                <div class="ruta-card">
+                    <h4>Bucaramanga</h4>
+                    <p>Viaja a la capital de Santander en un trayecto de 2 horas y 30 minutos por una carretera escénica.</p>
+                    <a href="{{ url_for('bucaramanga') }}">Ver más</a>
+                </div>
+                <div class="ruta-card">
+                    <h4>Puerto Wilches</h4>
+                    <p>Explora la biodiversidad de la región con rutas terrestres y fluviales ideales para amantes de la naturaleza.</p>
+                    <a href="{{ url_for('puerto_wilches') }}">Ver más</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pasos-section">
+            <h3>¿Cómo Explorar Barrancabermeja?</h3>
+            <p>Sigue estos pasos para planificar tu viaje y descubrir lo mejor de la ciudad y sus alrededores.</p>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button">ver rutas</a>
+        </section>
+
+        <section class="novedades">
+            <h3>Novedades y Eventos</h3>
+            <ul>
+                <li>Festival de Cumbia y Salsa en el Paseo de la Cultura - 15 de abril</li>
+                <li>Nueva ruta fluvial hacia Yondó disponible a partir de mayo</li>
+                <li>Exposición de arte local en el barrio Galán - 20 de abril</li>
+            </ul>
+        </section>
+    </div>
+{% endblock %}

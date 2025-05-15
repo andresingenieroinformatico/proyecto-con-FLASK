@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Panel de Administración{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    {% block extra_styles %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-menu">
+                    <div class="navbar-brand">
+                        <h1>Bienvenido Administrador</h1>
+                    </div>
+                    <li><a href="/index_admin">Inicio</a></li>
+                    <li><a href="/usuarios">Usuarios</a></li>
+                    <li><a href="/reservas_realizadas">Reservas</a></li>
+                    <li><a href="/vehiculos_registrados">Vehículos</a></li>
+                    <li><a href="/conductores">Conductores</a></li>
+                    <li><a href="/rutas_activas">Rutas</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">
+                            <div class="profile-initial">{{ usuario.primer_N[0].upper() }}</div>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="/logout">
+                                <i class="fas fa-sign-out-alt"></i> <p class="logout-text">Cerrar Sesión</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        <div class="row text-center mb-4">
+            <div class="col-md-3">
+                <div class="card">
+                    <h5>Usuarios registrados</h5>
+                    <p id="totalUsuarios">hay {{ total_usuarios }} Usuarios Registrados</p>
+                    <a href="/usuarios" class="card-link">Listar Usuarios</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <h5>Reservas realizadas</h5>
+                    <p id="totalreservas">Hay {{ total_reservas }} reservas Registradas</p>
+                    <a href="/reservas_realizadas" class="card-link">Listar Reservas</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <h5>Vehículos Disponibles</h5>
+                    <p id="totalvehiculos">Hay {{ total_vehiculos }} Vehiculos Registrados</p>
+                    <a href="/vehiculos_registrados" class="card-link">Listar Vehículos</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <h5>Conductores Disponibles</h5>
+                    <p id="totalconductores">Hay {{ total_conductores}} Conductores Registrados</p>
+                    <a href="/conductores" class="card-link">Listar Conductores</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <h5>Rutas Activas</h5>
+                    <p id="totalrutas">Hay {{ total_rutas }} Rutas Registradas</p>
+                    <a href="/rutas_activas" class="card-link">Listar Rutas</a>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+    {% block extra_scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% endblock %}
+</body>
+</html>

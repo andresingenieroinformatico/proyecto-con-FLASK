@@ -1,0 +1,79 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Vehículos Registrados
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="row-1">
+    <div class="col-12">
+        <section class="user-section">
+            <h3>LISTA DE VEHÍCULOS</h3>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <form method="POST" action="{{ url_for('vehiculos_registrados') }}">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Buscar por placa o marca">
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                </div>
+            </form>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Placa</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Capacidad</th>
+                        <th>tipo de vehiculo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if vehiculos %}
+                        {% for vehiculo in vehiculos %}
+                            <tr>
+                                <td>{{ vehiculo.id_vehiculo }}</td>
+                                <td>{{ vehiculo.placa }}</td>
+                                <td>{{ vehiculo.marca }}</td>
+                                <td>{{ vehiculo.modelo }}</td>
+                                <td>{{ vehiculo.capacidad }}</td>
+                                <td>{{ vehiculo.tipo_vehiculo }}</td>
+                                <td>
+                                    <a href="{{ url_for('editar_vehiculos', id=vehiculo.id_vehiculo) }}" class="btn-editar">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{ url_for('eliminar_vehiculo') }}" method="POST">
+                                        <input type="hidden" name="id_vehiculo" value="{{ vehiculos.id_vehiculo }}">
+                                        <button type="submit" class="btn-eliminar">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="7" class="text-center">No hay vehículos registrados.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+{% endblock %}

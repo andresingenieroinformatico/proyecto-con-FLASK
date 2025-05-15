@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Rutas{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rutas.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="rutas-container">
+        <h1>Rutas y Zonas Alrededor de Barrancabermeja</h1>
+        <p>Explora las rutas más importantes y las zonas aledañas de Barrancabermeja, la Capital Petrolera de Colombia. Desde el majestuoso Río Magdalena hasta las vibrantes comunas urbanas y corregimientos rurales, aquí encontrarás información sobre cómo moverte y qué descubrir en esta ciudad llena de historia y cultura.</p>
+
+        <div class="ruta-item">
+            <div class="ruta-content">
+                <p>Yondó, a orillas del Río Magdalena, es un destino clave que conecta con Barrancabermeja al occidente. Su ruta fluvial es ideal para quienes buscan disfrutar de la navegación, la pesca o un paseo en lancha hacia sus ciénagas y humedales. Los atardeceres dorados sobre el río ofrecen un espectáculo inolvidable.</p>
+                <h2>Yondó</h2>
+            </div>
+            <img src="{{ url_for('static', filename='images/rio_magdalena.jpg') }}" alt="Vista de yondó" class="ruta-img">
+        </div>
+
+        <div class="ruta-item-1">
+            <div class="ruta-content">
+                <h2>Bucaramanga</h2>
+                <p>A 116 km al este, Bucaramanga es accesible por una carretera bien conectada que atraviesa el paisaje montañoso de Santander. Empresas como CootransMagdalena ofrecen buses cada 30 minutos desde la Terminal de Transportes, con un trayecto de aproximadamente 2 horas y 30 minutos. Es perfecta para viajes de negocios o turismo.</p>
+            </div>
+            <img src="{{ url_for('static', filename='images/ruta_bucaramanga.jpg') }}" alt="Carretera hacia Bucaramanga" class="ruta-img">
+        </div>
+
+        <div class="ruta-item">
+            <div class="ruta-content">
+                <p>Al norte de Barrancabermeja, Puerto Wilches es un corregimiento clave a lo largo del Río Magdalena. Esta ruta combina transporte terrestre y fluvial, ideal para explorar la riqueza hídrica y la biodiversidad de la región. Es un punto estratégico para pescadores y amantes de la naturaleza.</p>
+                <h2>Puerto Wilches</h2>
+            </div>
+            <img src="{{ url_for('static', filename='images/puerto_wilches.jpg') }}" alt="Puerto Wilches y el Río Magdalena" class="ruta-img">
+        </div>
+
+        <div class="ruta-item-1">
+            <div class="ruta-content">
+                <h2>Puerto Parra</h2>
+                <p>Hacia el sur, las rutas hacia Puerto Parra y Simacota ofrecen un vistazo a la vida rural de Santander. Estas zonas son accesibles por carretera y están rodeadas de cultivos como yuca y cacao. Perfectas para quienes buscan desconectarse y disfrutar del campo colombiano.</p>
+            </div>
+            <img src="{{ url_for('static', filename='images/puerto_parra.jpg') }}" alt="Paisaje rural en Puerto Parra" class="ruta-img">
+        </div>
+
+        <div class="ruta-item">
+            <div class="ruta-content">
+                <p>Barrancabermeja está dividida en 7 comunas con más de 300 barrios. Desde la zona comercial junto al puerto hasta el Paseo de la Cultura en el barrio Galán, las rutas internas son vibrantes y llenas de vida. Descubre la cumbia y los clubes de salsa que hacen famosa la noche barranqueña.</p>
+                <h2>Barrancabermeja</h2>
+            </div>
+            <img src="{{ url_for('static', filename='images/comunas_barrancabermeja.jpg') }}" alt="Paseo de la Cultura en Barrancabermeja" class="ruta-img">
+        </div>
+
+        <div class="ruta-item-1">
+            <div class="ruta-content">
+                <h2>Aeropuerto Yariguíes</h2>
+                <p>El Aeropuerto Yariguíes conecta Barrancabermeja con Bogotá en un vuelo de 55 minutos operado por Avianca y EasyFly. Es la opción más rápida para viajes nacionales, con salidas regulares que facilitan el acceso a la capital colombiana.</p>
+            </div>
+            <img src="{{ url_for('static', filename='images/aeropuerto_yariguies.jpg') }}" alt="Aeropuerto Yariguíes" class="ruta-img">
+        </div>
+    </section>
+{% endblock %}

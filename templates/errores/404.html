@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página No Encontrada</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <img src="{{ url_for('static', filename='images/error_404.png') }}" alt="Error 404" class="image-404">
+        <h1 class="text-404">¡Oops! Parece que la página que buscas no existe o se ha movido.</h1>
+        <p>
+            {% if tipo_usu == 'Administrador' %}
+                <a href="{{ url_for('index_admin') }}" class="btn"><i class="fas fa-home"></i> Volver al panel de administrador</a>
+            {% elif tipo_usu == 'ciudadano' %}
+                <a href="{{ url_for('index') }}" class="btn"><i class="fas fa-home"></i> Volver al panel de ciudadano</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn"><i class="fas fa-sign-in-alt"></i>iniciar sesión</a>
+            {% endif %}
+        </p>
+        
+    </main>
+</body>
+
+</html>

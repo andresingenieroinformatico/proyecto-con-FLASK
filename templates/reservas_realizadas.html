@@ -1,0 +1,94 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Reservas Registradas
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datos_1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <section class="user-section">
+            <h3>LISTA DE RESERVAS</h3>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('reservas_realizadas') }}">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Buscar por Estado">
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                </div>
+            </form>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID Reserva</th>
+                        <th>Nombre Completo</th>
+                        <th>Cédula</th>
+                        <th>Celular</th>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Hora de Salida</th>
+                        <th>AM/PM</th>
+                        <th>Tipo de Vehículo</th>
+                        <th>Cant. Pasajeros</th>
+                        <th>Vehículo</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if reservas %}
+                        {% for reserva in reservas %}
+                            <tr>
+                                <td>{{ reserva.id_reserva }}</td>
+                                <td>{{ reserva.Nombre_completo }}</td>
+                                <td>{{ reserva.cedula }}</td>
+                                <td>{{ reserva.celular }}</td>
+                                <td>{{ reserva.origen }}</td>
+                                <td>{{ reserva.destino }}</td>
+                                <td>{{ reserva.hora_salida }}</td>
+                                <td>{{ reserva.am_pm }}</td>
+                                <td>{{ reserva.tipo_vehiculo }}</td>
+                                <td>{{ reserva.cant_pasajeros }}</td>
+                                <td>{{ reserva.vehiculo or 'Sin asignar' }}</td>
+                                <td>{{ reserva.precio or 'Pendiente' }}</td>
+                                <td>{{ reserva.estado }}</td>
+                                <td>
+                                    <a href="{{ url_for('editar_reserva', id=reserva.id_reserva) }}" class="btn-editar">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{ url_for('eliminar_reserva') }}" method="POST">
+                                        <input type="hidden" name="id_reserva" value="{{ reserva.id_reserva }}">
+                                        <button type="submit" class="btn-eliminar">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="15" class="text-center">No hay reservas registradas.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+{% endblock %}

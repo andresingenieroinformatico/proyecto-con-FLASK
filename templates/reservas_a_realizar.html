@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservar Viaje{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reservas_a_realizar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="reserva-container">
+        <h1>Reservar Viaje</h1>
+        <p>Completa el formulario para reservar tu viaje a uno de nuestros destinos.</p>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form id="reserva-form" action="/reservas_a_realizar" method="POST">
+            <section class="form-section">
+                <h2>Datos Personales</h2>
+                <div class="form-group">
+                    <label for="Nombre_completo"><i class="fas fa-user icon"></i> Nombre Completo:</label>
+                    <input type="text" id="Nombre_completo" name="Nombre_completo" required placeholder="Ej: Juan Pérez">
+                </div>
+
+                <div class="form-group">
+                    
+                    <label for="cedula"><i class="fas fa-id-card icon"></i> Cédula:</label>
+                    <input type="number" id="cedula" name="cedula" required placeholder="Ej: 1234567890">
+                </div>
+
+                <div class="form-group">
+                    <label for="celular"><i class="fas fa-phone icon"></i> Teléfono:</label>
+                    <input type="tel" id="celular" name="celular" required placeholder="Ej: 3001234567">
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Detalles del Viaje</h2>
+                <div class="form-group">
+                    <label for="origen">Origen:</label>
+                    <select id="origen" name="origen" required>
+                        <option value="" disabled selected>Seleccione el origen</option>
+                        <option value="Yondó">Yondó</option>
+                        <option value="Bucaramanga">Bucaramanga</option>
+                        <option value="Puerto Wilches">Puerto Wilches</option>
+                        <option value="Puerto Parra">Puerto Parra</option>
+                        <option value="barrancabermeja">Barrancabermeja</option>
+                        <option value="Aeropuerto yariguíes">Aeropuerto Yariguíes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="destino">Destino:</label>
+                    <select id="destino" name="destino" required>
+                        <option value="" disabled selected>Seleccione el destino</option>
+                        <option value="Yondó">Yondó</option>
+                        <option value="Bucaramanga">Bucaramanga</option>
+                        <option value="Puerto Wilches">Puerto Wilches</option>
+                        <option value="Puerto Parra">Puerto Parra</option>
+                        <option value="barrancabermeja">Barrancabermeja</option>
+                        <option value="Aeropuerto yariguíes">Aeropuerto Yariguíes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha_salida">Fecha de Salida:</label>
+                    <input type="date" id="fecha_salida" name="fecha_salida" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora_salida">Hora de Salida:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select id="hora_salida" name="hora_salida" required>
+                            {% for h in range(1, 13) %}
+                                <option value="{{ "%02d:00"|format(h) }}">{{ "%02d:00"|format(h) }}</option>
+                                <option value="{{ "%02d:30"|format(h) }}">{{ "%02d:30"|format(h) }}</option>
+                            {% endfor %}
+                        </select>
+                        <select name="am_pm">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo_vehiculo">Tipo de Vehículo:</label>
+                    <select id="tipo_vehiculo" name="tipo_vehiculo" required onchange="mostrarOpcionesPasajeros()">
+                        <option value="" disabled selected>Selecciona un vehículo</option>
+                        <option value="bus">Bus</option>
+                        <option value="carro_particular">Carro Particular</option>
+                        <option value="taxi">Taxi</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="pasajeros-bus" style="display: none;">
+                    <label for="cant_pasajeros_bus">Número de Pasajeros (máximo 40):</label>
+                    <input type="number" id="cant_pasajeros_bus" name="cant_pasajeros_bus" min="1" max="40" placeholder="Ej: 30">
+                </div>
+
+                <div class="form-group" id="pasajeros-otros" style="display: none;">
+                    <label for="cant_pasajeros_otros">Número de Pasajeros (máximo 4):</label>
+                    <select id="cant_pasajeros_otros" name="cant_pasajeros_otros">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </section>
+
+            <div class="botones-section">
+                <button type="submit" class="cta-button-1 reserva-button1">Realizar Reserva</button>
+                <a href="{{ url_for('index') }}" class="cta-button-1 volver-button1">Volver al Inicio</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/reserva.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarOpcionesPasajeros();
+        });
+    </script>
+{% endblock %}

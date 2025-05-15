@@ -1,0 +1,70 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Editar Ruta
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar_datos.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <section class="edit-user-section">
+            <h3>EDITAR RUTA</h3>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="{{ url_for('actualizar_rutas') }}" method="POST">
+                <input type="hidden" name="id_ruta" value="{{ rutas.id_ruta }}">
+
+                <div class="mb-3">
+                    <label for="origen" class="form-label">Origen:</label>
+                    <input type="text" id="origen" name="origen" class="form-control" value="{{ rutas.origen }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="destino" class="form-label">Destino:</label>
+                    <input type="text" id="destino" name="destino" class="form-control" value="{{ rutas.destino }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="destino" class="form-label">Distancia en Kilometros</label>
+                    <input type="text" id="distancia_km" name="distancia_km" class="form-control" value="{{ rutas.distancia_km }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="duracion_aprox" class="form-label">Duración Aproximada:</label>
+                    <input type="text" id="duracion_aprox" name="duracion_aprox" class="form-control" value="{{ rutas.duracion_aprox }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="duracion_aprox" class="form-label">Días de Servicio:</label>
+                    <input type="text" id="dias_servicio" name="dias_servicio" class="form-control" value="{{ rutas.dias_servicio }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="estado_ruta" class="form-label">Estado de Ruta:</label>
+                    <select id="estado" name="estado" class="form-control" required>
+                        <option value="activa" {% if rutas.estado == 'activa' %}selected{% endif %}>Activa</option>
+                        <option value="inactiva" {% if rutas.estado== 'inactiva' %}selected{% endif %}>inactiva</option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <a href="{{ url_for('rutas_activas') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}

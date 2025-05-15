@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Ruta al Aeropuerto Yariguíes{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rutas_a_elegir.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="ruta-aeropuerto-yariguies-container">
+
+        <section class="distancia-section">
+            <h2>Distancia</h2>
+            <p>La distancia entre el centro de Barrancabermeja (Parque de la Vida) y el Aeropuerto Yariguíes es de <strong>10 kilómetros</strong> (10,000 metros) por carretera. El trayecto puede tomar entre 15 y 20 minutos dependiendo del tráfico.</p>
+        </section>
+
+        <section class="imagenes-section">
+            <h2>Imágenes del Aeropuerto Yariguíes</h2>
+            <div class="imagenes-gallery">
+                <img src="{{ url_for('static', filename='images/aeropuerto_fachada.jpg') }}" alt="Aeropuerto" class="barrancabermeja-img">
+                <img src="{{ url_for('static', filename='images/aeropuerto_pista.jpg') }}" alt="Aeropuerto" class="barrancabermeja-img">
+                <img src="{{ url_for('static', filename='images/aeropuerto_interior.jpg') }}" alt="Aeropuerto" class="barrancabermeja-img">
+            </div>
+        </section>
+
+        <!-- Sección de botones -->
+        <div class="botones-section">
+            <a href="{{ url_for('reservas_a_realizar') }}" class="cta-button reserva-button">Realizar Reserva de Viaje</a>
+            <a href="{{ url_for('rutas_a_elegir') }}" class="cta-button volver-button">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}

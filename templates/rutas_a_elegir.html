@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Rutas a Elegir{% endblock %}
+
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rutas_a_elegir.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="rutas-elegir-container">
+        <h1>Rutas a Elegir</h1>
+        <p>Selecciona una de las rutas disponibles para explorar Barrancabermeja y sus alrededores. Cada ruta ofrece una experiencia única, desde paseos fluviales hasta viajes por carretera.</p>
+
+        <div class="rutas-list">
+            <div class="ruta-card">
+                <h2>Yondó</h2>
+                <p>Un destino a orillas del Río Magdalena, ideal para paseos en lancha y atardeceres dorados.</p>
+                <a href="{{ url_for('yondo') }}" class="cta-button">Explorar</a>
+            </div>
+            <div class="ruta-card">
+                <h2>Bucaramanga</h2>
+                <p>Viaja a la capital de Santander por una carretera montañosa, perfecta para negocios o turismo.</p>
+                <a href="{{ url_for('bucaramanga') }}" class="cta-button">Explorar</a>
+            </div>
+            <div class="ruta-card">
+                <h2>Puerto Wilches</h2>
+                <p>Explora la biodiversidad de la región con rutas terrestres y fluviales, ideal para amantes de la naturaleza.</p>
+                <a href="{{ url_for('puerto_wilches') }}" class="cta-button">Explorar</a>
+            </div>
+            <div class="ruta-card">
+                <h2>Puerto Parra</h2>
+                <p>Descubre la vida rural de Santander, rodeada de cultivos como yuca y cacao.</p>
+                <a href="{{ url_for('puerto_parra') }}" class="cta-button">Explorar</a>
+            </div>
+            <div class="ruta-card">
+                <h2>Barrancabermeja</h2>
+                <p>Conoce las 7 comunas y más de 300 barrios, llenos de vida, cumbia y salsa.</p>
+                <a href="{{ url_for('barranca') }}" class="cta-button">Explorar</a>
+            </div>
+            <div class="ruta-card">
+                <h2>Aeropuerto Yariguíes</h2>
+                <p>Conecta con Bogotá en un vuelo de 55 minutos, la opción más rápida para viajes nacionales.</p>
+                <a href="{{ url_for('aeropuerto') }}" class="cta-button">Explorar</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

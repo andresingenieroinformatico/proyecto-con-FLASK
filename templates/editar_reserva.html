@@ -1,0 +1,107 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Editar Ruta
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar_datos.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <section class="edit-user-section">
+            <h3>EDITAR RUTA</h3>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="{{ url_for('actualizar_reserva') }}" method="POST">
+                <input type="hidden" name="id_reserva" value="{{ reservas.id_reserva }}">
+
+                <div class="mb-3">
+                    <label for="Nombre_completo" class="form-label">Nombre Completo:</label>
+                    <input type="text" id="Nombre_completo" name="Nombre_completo" class="form-control" value="{{ reservas.Nombre_completo }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cedula" class="form-label">Cédula</label>
+                    <input type="text" id="cedula" name="cedula" class="form-control" value="{{ reservas.cedula }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cedula" class="form-label">Celular</label>
+                    <input type="text" id="celular" name="celular" class="form-control" value="{{ reservas.celular }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="origen" class="form-label">Origen:</label>
+                    <input type="text" id="origen" name="origen" class="form-control" value="{{ reservas.origen }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="destino" class="form-label">Destino:</label>
+                    <input type="text" id="destino" name="destino" class="form-control" value="{{ reservas.destino }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="hora_salida" class="form-label">Hora de Salida</label>
+                    <input type="text" id="hora_salida" name="hora_salida" class="form-control" value="{{ reservas.hora_salida }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="am_pm" class="form-label">am_pm:</label>
+                    <input type="text" id="am_pm" name="am_pm" class="form-control" value="{{ reservas.am_pm}}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_vehiculo" class="form-label">Tipo De Vehículo</label>
+                    <input type="text" id="tipo_vehiculo" name="tipo_vehiculo" class="form-control" value="{{ reservas.tipo_vehiculo }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Cantidad de Pasajeros</label>
+                    <input type="text" id="cant_pasajeros" name="cant_pasajeros" class="form-control" value="{{ reservas.cant_pasajeros }}" readonly>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="placa" class="form-label">Vehículo</label>
+                    <select id="placa" name="placa" class="form-control" required>
+                        <option value="" disabled selected>Selecciona un vehículo</option>
+                        {% for vehiculo in vehiculos %}
+                        <option value="{{ vehiculo.placa }}">{{ vehiculo.placa }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="text" id="precio" name="precio" class="form-control" value="{{ reservas.precio }}" required>
+                </div>
+                
+
+                <div class="mb-3">
+                    <label for="estado_ruta" class="form-label">Estado de la reserva:</label>
+                    <select id="estado" name="estado" class="form-control" required>
+                        <option value="pendiente" {% if reservas.estado == 'pendiente' %}selected{% endif %}>Pendiente</option>
+                        <option value="confirmada" {% if reservas.estado == 'confirmada' %}selected{% endif %}>Confirmada</option>
+                        
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Confirmar reserva</button>
+                    <a href="{{ url_for('reservas_realizadas') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}

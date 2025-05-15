@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservas{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reservas.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="steps-container">
+        <h1>Guía para Reservas</h1>
+        <p>Sigue estos pasos sencillos para reservar tu transporte en Barrancabermeja de forma rápida y segura.</p>
+
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h2>Cómo Reservar</h2>
+                <p>Inicia sesión en nuestra web o visita la Terminal de Transportes. Elige destino, fecha y el vehículo que deseas alquilar (taxi, bus o particular).</p>
+                <img src="{{ url_for('static', filename='images/reserva_online.png') }}" alt="Pantalla de reserva en línea" class="step-img">
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h2>Opciones de Pago</h2>
+                <p>Paga con efectivo, tarjeta o transferencia en línea.</p>
+                <img src="{{ url_for('static', filename='images/pago_reserva.png') }}" alt="Métodos de pago" class="step-img">
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h2>Confirmación</h2>
+                <p>Recibe información sobre tu reservación. Cancela sin costo adicional hasta 24 horas antes; después, hay un 20% de cargo.</p>
+                <img src="{{ url_for('static', filename='images/confirmacion_reserva.png') }}" alt="Confirmación de reserva" class="step-img">
+            </div>
+        </div>
+    </section>
+{% endblock %}

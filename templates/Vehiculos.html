@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Vehiculos{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vehiculos.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="rutas-container">
+        <h1>Vehículos Transportadores</h1>
+        <p>Conoce los principales tipos de vehículos que facilitan el transporte en Barrancabermeja: taxis, buses y vehículos particulares. Cada uno ofrece opciones prácticas para moverte por la ciudad y sus alrededores.</p>
+
+        <div class="ruta-item">
+            <h2>Taxis</h2>
+            <p>Taxis amarillos disponibles 24/7 en la ciudad. Ideales para trayectos cortos en el interior de la ciudad. Tarifa mínima: $7,000 COP.</p>
+            <img src="{{ url_for('static', filename='images/taxi_barranca.jpg') }}" alt="Taxi en Barrancabermeja" class="ruta-img">
+        </div>
+
+        <div class="ruta-item-1">
+            <h2>Buses</h2>
+            <p>Buses urbanos y regionales operados por empresas como CootransMagdalena. Conectan comunas y rutas a Bucaramanga o Puerto Wilches. Pasaje desde $2,500 COP.</p>
+            <img src="{{ url_for('static', filename='images/bus_barranca.jpg') }}" alt="Bus en Barrancabermeja" class="ruta-img">
+        </div>
+
+        <div class="ruta-item">
+            <h2>Vehículos Particulares</h2>
+            <p>Autos privados para viajes personalizados. Perfectos para explorar zonas rurales como Puerto Parra o hacer recorridos familiares. Costo varía según distancia.</p>
+            <img src="{{ url_for('static', filename='images/vehiculo_particular.jpg') }}" alt="Vehículo particular en Barrancabermeja" class="ruta-img">
+        </div>
+    </section>
+{% endblock %}

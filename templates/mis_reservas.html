@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Mis Reservas{% endblock %}
+{% block header %}
+    <header>
+        {% include 'includes/barra_inicio_sesion.html' %}
+    </header>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mis_reservas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barra_inicio_sesion.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Mis Reservas</h1>
+        {% for reserva in reservas %}
+        <div class="card">
+            <div class="reserva-id">RESERVA #{{ reserva.id_reserva | default('N/A') }}</div>
+            <div class="info">
+                {% if reserva.estado.lower() == 'pendiente' %}
+                    <p><strong>Origen:</strong> {{ reserva.origen | default('No especificado') }}</p>
+                    <p><strong>Destino:</strong> {{ reserva.destino | default('No especificado') }}</p>
+                    <p><strong>Hora:</strong> {{ reserva.hora_salida | default('N/A') }} {{ reserva.am_pm | default('') }}</p>
+                    <p><strong>Estado:</strong> 
+                        <span class="pendiente">{{ reserva.estado | default('Pendiente') }}</span>
+                    </p>
+                {% elif reserva.estado.lower() == 'confirmada' %}
+                    <p><strong>Origen:</strong> {{ reserva.origen | default('No especificado') }}</p>
+                    <p><strong>Destino:</strong> {{ reserva.destino | default('No especificado') }}</p>
+                    <p><strong>Hora:</strong> {{ reserva.hora_salida | default('N/A') }} {{ reserva.am_pm | default('') }}</p>
+                    <p><strong>Placa del Vehículo:</strong> {{ reserva.placa | default('No asignada') }}</p>
+                    <p><strong>Cantidad de Pasajeros:</strong> {{reserva.cant_pasajeros }}</p>
+                    <p><strong>Precio:</strong> ${{ '{:,.0f}'.format(reserva.precio | float).replace(',', '.') }}</p>
+                    <p><strong>Estado:</strong> 
+                        <span class="confirmada">Confirmada</span>
+                    </p>
+                    <p><em>Recuerda estar presente 30 minutos antes de la hora de salida.</em></p>
+                {% else %}
+                    <p><strong>Estado:</strong> {{ reserva.estado | default('Sin estado') }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if reservas|length == 0 %}
+        <p class="no-reservas">No tienes reservas registradas.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+

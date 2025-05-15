@@ -1,0 +1,80 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+    Conductores Registrados
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="row-1">
+    <div class="col-12">
+        <section class="user-section">
+            <h3>LISTA DE CONDUCTORES</h3>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="POST" action="{{ url_for('conductores') }}">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Buscar por nombre o apellido">
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                </div>
+            </form>
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cédula</th>
+                        <th>Teléfono</th>
+                        <th>Licencia</th>
+                        <th>Vehiculo Asignado</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if conductores %}
+                        {% for conductor in conductores %}
+                            <tr>
+                                <td>{{ conductor.id_conductor }}</td>
+                                <td>{{ conductor.nombre }}</td>
+                                <td>{{ conductor.apellido }}</td>
+                                <td>{{ conductor.cedula }}</td>
+                                <td>{{ conductor.telefono }}</td>
+                                <td>{{ conductor.licencia }}</td>
+                                <td>{{ conductor.placa}}</td>
+                                <td>
+                                    <a href="{{ url_for('editar_conductor', id=conductor.id_conductor) }}" class="btn-editar">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{ url_for('eliminar_conductor') }}" method="POST">
+                                        <input type="hidden" name="id_conductor" value="{{ conductor.id_conductor }}">
+                                        <button type="submit" class="btn-eliminar">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center">No hay conductores registrados.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+{% endblock %}
